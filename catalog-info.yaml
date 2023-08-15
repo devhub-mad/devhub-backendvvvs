@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ordersval
+  annotations:
+    argocd/app-name: ordersval
+    backstage.io/kubernetes-id: ordersval
+    backstage.io/kubernetes-namespace: devhub-val
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: devhub-mad/devhub-backendvvvs
+    janus-idp.io/tekton-enabled: 'true'
+  tags:
+    - java
+    - quarkus
+    - maven
+    - workshop
+  links:
+    - url: https://console-openshift-console/dev-pipelines/ns/devhub-val/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console/k8s/ns/devhub-val/deployments/
+      title: Deployment
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:default/varodrig"
+  system: workshop-system-devhub-val
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-devhub-val
+  tags:
+    - openshift
+    - workshop
+    - rhdh
+spec:
+  owner: "user:default/varodrig"
+---
